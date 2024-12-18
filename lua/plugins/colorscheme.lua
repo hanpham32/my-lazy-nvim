@@ -27,7 +27,7 @@ return {
     })
 
     -- Load the colorscheme
-    vim.cmd("colorscheme kanagawa-dragon")
+    vim.cmd("colorscheme kanagawa")
 
     -- Set transparency
     vim.cmd([[
