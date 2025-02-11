@@ -27,7 +27,7 @@ return {
       },
 
       -- To specify running only the first available formatter, use this:
-      format = {
+      default_format_opts = {
         timeout_ms = 500,
         async = false, -- not recommended to change
         quiet = false, -- not recommended to change
