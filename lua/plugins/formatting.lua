@@ -26,12 +26,6 @@ return {
         toml = { "taplo" },
       },
 
-      -- Use the new format_on_save syntax
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
-      },
-
       -- To specify running only the first available formatter, use this:
       format = {
         timeout_ms = 500,
