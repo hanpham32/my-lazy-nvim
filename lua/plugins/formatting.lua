@@ -22,13 +22,13 @@ return {
         handlebars = { "prettier" },
         rust = { "rustfmt" },
         lua = { "stylua" },
-        python = { "isort", "black" },
+        python = { "black" },
         toml = { "taplo" },
       },
 
       -- To specify running only the first available formatter, use this:
       default_format_opts = {
-        timeout_ms = 500,
+        timeout_ms = 2000,
         async = false, -- not recommended to change
         quiet = false, -- not recommended to change
         lsp_fallback = true,

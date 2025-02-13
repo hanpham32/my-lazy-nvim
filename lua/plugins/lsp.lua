@@ -26,6 +26,65 @@ return {
         },
       })
 
+      -- Python LSP setup
+      lspconfig.pyright.setup({
+        capabilities = {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+          },
+        },
+        on_attach = function(client, bufnr)
+          client.server_capabilities.documentFormattingProvider = true
+        end,
+      })
+
+      -- Rust LSP setup
+      lspconfig.rust_analyzer.setup({
+        capabilities = {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+          },
+        },
+      })
+
+      -- C# LSP setup
+      lspconfig.omnisharp.setup({
+        cmd = { "omnisharp" }, -- Ensure `omnisharp` is in your PATH
+        capabilities = {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+          },
+        },
+      })
+
+      -- SQL LSP setup
+      lspconfig.sqls.setup({
+        capabilities = {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+          },
+        },
+      })
+
+      -- Solidity LSP setup
+      lspconfig.solidity.setup({
+        capabilities = {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+          },
+        },
+      })
+
       vim.api.nvim_create_autocmd("LspAttach", {
         desc = "LSP Actions",
         callback = function(event)
