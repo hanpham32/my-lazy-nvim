@@ -5,6 +5,15 @@ return {
   version = false, -- set this if you want to always pull the latest change
   opts = {
     -- add any opts here
+    provider = "openrouter",
+    vendors = {
+      openrouter = {
+        __inherited_from = "openai",
+        endpoint = "https://openrouter.ai/api/v1",
+        api_key_name = "OPENROUTER_API_KEY",
+        model = "openai/gpt-4.1",
+      },
+    },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
