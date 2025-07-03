@@ -1,5 +1,22 @@
 return {
-  "yetone/avante.nvim",
+  -- "yetone/avante.nvim",
+  dir = "~/.config/nvim/plugins/avante.nvim",
+  name = "avante.nvim",
+  build = function()
+    -- conditionally use the correct build system for the current OS
+    if vim.fn.has("win32") == 1 then
+      return "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+    else
+      return "make BUILD_FROM_SOURCE=true"
+    end
+  end,
+  init = function()
+    vim.schedule(function()
+      vim.notify("🧪 Using local development version of avante.nvim", vim.log.levels.INFO, {
+        title = "Avante Dev",
+      })
+    end)
+  end,
   event = "VeryLazy",
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
