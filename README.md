@@ -5,7 +5,7 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 # my-lazy-nvim
 
 
-## Required
+## Required dependencies
 
 - efm-langserver
   - `brew install efm-langserver`
@@ -15,3 +15,5 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
   - `:MasonInstall debugpy`
 - angular-language-server
   - `npm install -g @angular/language-server`
+- fzf
+- lazygit
