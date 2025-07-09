@@ -19,6 +19,12 @@ return {
       local lspconfig = require("lspconfig")
       local capabilities = cmp_nvim_lsp.default_capabilities()
 
+      -- Proto
+      lspconfig.bufls.setup({
+        filetypes = { "proto" },
+        cmd = { "bufls", "serve" },
+      })
+
       -- Solidity
       lspconfig.solidity.setup({
         capabilities = capabilities,
@@ -176,6 +182,7 @@ return {
           "clangd",
           "--offset-encoding=utf-16",
         },
+        filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
       })
 
       for type, icon in pairs(diagnostic_signs) do
