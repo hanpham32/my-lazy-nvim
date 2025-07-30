@@ -31,6 +31,7 @@ return {
             mappings = {
               ["oa"] = "avante_add_files",
             },
+            width = 20,
           },
         },
       })

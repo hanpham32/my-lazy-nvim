@@ -19,6 +19,33 @@ return {
       local lspconfig = require("lspconfig")
       local capabilities = cmp_nvim_lsp.default_capabilities()
 
+      vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+        pattern = "*.go",
+        command = "set filetype=go",
+      })
+
+      -- Go
+      lspconfig.gopls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        filetypes = { "go", "gomod", "gowork", "gotmpl" },
+        root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+        settings = {
+          gopls = {
+            complete_unimported = true,
+            use_placeholders = true,
+            analyses = {
+              unusedparams = true,
+              nilness = true,
+              unusedwrite = true,
+              fieldalignment = true,
+            },
+            staticcheck = true,
+            gofumpt = true,
+          },
+        },
+      })
+
       -- Proto
       lspconfig.bufls.setup({
         filetypes = { "proto" },
@@ -31,6 +58,7 @@ return {
         on_attach = on_attach,
         filetypes = { "solidity" },
         root_dir = lspconfig.util.root_pattern("hardhat.config.*", "foundry.toml", "remappings.txt", ".git"),
+        cmd = { "solidity-ls", "--stdio" },
         settings = {
           solidity = {
             includePath = "",
@@ -203,6 +231,7 @@ return {
       local hadolint = require("efmls-configs.linters.hadolint")
       local cpplint = require("efmls-configs.linters.cpplint")
       local clangformat = require("efmls-configs.formatters.clang_format")
+      local sql_formatter = require("plugins.efm.sql_formatter")
 
       -- configure efm server
       lspconfig.efm.setup({
@@ -225,6 +254,7 @@ return {
           "css",
           "c",
           "cpp",
+          "sql",
         },
         init_options = {
           documentFormatting = true,
@@ -236,6 +266,7 @@ return {
         },
         settings = {
           languages = {
+            sql = { sql_formatter },
             solidity = { solhint, prettier_d },
             lua = { luacheck, stylua },
             python = { flake8, black },
