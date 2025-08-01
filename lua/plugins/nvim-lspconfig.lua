@@ -53,12 +53,12 @@ return {
       })
 
       -- Solidity
-      lspconfig.solidity.setup({
+      lspconfig.solidity_ls.setup({
         capabilities = capabilities,
         on_attach = on_attach,
         filetypes = { "solidity" },
         root_dir = lspconfig.util.root_pattern("hardhat.config.*", "foundry.toml", "remappings.txt", ".git"),
-        cmd = { "solidity-ls", "--stdio" },
+        cmd = { "solidity-language-server", "--stdio" },
         settings = {
           solidity = {
             includePath = "",
@@ -236,7 +236,6 @@ return {
       -- configure efm server
       lspconfig.efm.setup({
         filetypes = {
-          "solidity",
           "lua",
           "python",
           "json",
@@ -255,6 +254,7 @@ return {
           "c",
           "cpp",
           "sql",
+          "solidity",
         },
         init_options = {
           documentFormatting = true,
