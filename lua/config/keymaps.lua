@@ -18,3 +18,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 -- Move lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+vim.keymap.set("n", "<leader>td", "<cmd>TodoQuickFix<cr>", { desc = "Open TODOs in quickfix list" })
+require("telescope").load_extension("todo-comments")
+vim.keymap.set("n", "<leader>tt", "<cmd>TodoTelescope<cr>", { desc = "Open TODOs in telescope" })

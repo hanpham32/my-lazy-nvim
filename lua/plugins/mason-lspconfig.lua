@@ -1,5 +1,5 @@
 local mason = {
-  "williamboman/mason.nvim",
+  "mason-org/mason.nvim",
   cmd = "Mason",
   event = "BufReadPre",
   opts = {
@@ -14,7 +14,7 @@ local mason = {
 }
 
 local mason_lspconfig = {
-  "williamboman/mason-lspconfig.nvim",
+  "mason-org/mason-lspconfig.nvim",
   opts = {
     ensure_installed = {
       "solidity_ls",
@@ -32,7 +32,7 @@ local mason_lspconfig = {
     automatic_installation = true,
   },
   event = "BufReadPre",
-  dependencies = "williamboman/mason.nvim",
+  dependencies = "mason-org/mason.nvim",
 }
 
 return {

@@ -6,7 +6,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "windwp/nvim-autopairs",
-      "williamboman/mason.nvim",
+      "mason-org/mason.nvim",
       "creativenull/efmls-configs-nvim",
       "hrsh7th/nvim-cmp",
       "hrsh7th/cmp-buffer",
@@ -53,24 +53,29 @@ return {
       })
 
       -- Solidity
-      lspconfig.solidity_ls.setup({
+      lspconfig.solidity_ls_nomicfoundation.setup({
         capabilities = capabilities,
         on_attach = on_attach,
+        cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
         filetypes = { "solidity" },
         root_dir = lspconfig.util.root_pattern("hardhat.config.*", "foundry.toml", "remappings.txt", ".git"),
-        cmd = { "solidity-language-server", "--stdio" },
         settings = {
           solidity = {
             includePath = "",
             remappings = {
-              ["@openzeppelin-upgrades/"] = "lib/eigenlayer-middleware/lib/openzeppelin-contracts-upgradeable/",
-              ["@openzeppelin/"] = "lib/eigenlayer-middleware/lib/openzeppelin-contracts/",
-              ["ds-test/"] = "lib/ds-test/src/",
-              ["@eigenlayer/"] = "lib/eigenlayer-middleware/lib/eigenlayer-contracts/src",
-              ["@eigenlayer-middleware/"] = "lib/eigenlayer-middleware/",
+              -- OpenZeppelin (common import forms)
+              ["@openzeppelin/contracts/"] = "lib/openzeppelin-contracts/contracts/",
+              ["@openzeppelin/contracts-upgradeable/"] = "lib/openzeppelin-contracts-upgradeable/contracts/",
+              -- Foundry libs
               ["forge-std/"] = "lib/forge-std/src/",
+              ["ds-test/"] = "lib/ds-test/src/",
+              -- EigenLayer
+              ["@eigenlayer/"] = "lib/eigenlayer-middleware/lib/eigenlayer-contracts/src/",
+              ["@eigenlayer-middleware/"] = "lib/eigenlayer-middleware/",
+              -- Your other libs
               ["tnt-core/"] = "lib/tnt-core/src/",
-              ["v4-core/"] = "lib/v4-core",
+              ["v4-core/"] = "lib/v4-core/src/",
+              -- Local alias (optional)
               ["core/"] = "src/",
             },
           },
@@ -267,7 +272,7 @@ return {
         settings = {
           languages = {
             sql = { sql_formatter },
-            solidity = { solhint, prettier_d },
+            -- solidity = { solhint, prettier_d },
             lua = { luacheck, stylua },
             python = { flake8, black },
             typescript = { eslint, prettier_d },

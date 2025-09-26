@@ -80,7 +80,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         opts = {
           registries = {
             "github:nvim-java/mason-registry",
@@ -88,7 +88,7 @@ return {
           },
         },
       },
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason-lspconfig.nvim",
       "RubixDev/mason-update-all",
     },
   },

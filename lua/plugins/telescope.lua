@@ -26,5 +26,14 @@ return {
       end,
       desc = "Grep files",
     },
+    {
+      "<leader>fs",
+      function()
+        require("telescope.builtin").lsp_document_symbols({
+          symbols = { "Function", "Method" },
+        })
+      end,
+      desc = "Find functions in buffer",
+    },
   },
 }
