@@ -22,3 +22,5 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<leader>td", "<cmd>TodoQuickFix<cr>", { desc = "Open TODOs in quickfix list" })
 require("telescope").load_extension("todo-comments")
 vim.keymap.set("n", "<leader>tt", "<cmd>TodoTelescope<cr>", { desc = "Open TODOs in telescope" })
+
+vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Toggle Markdown Preview" })
