@@ -7,5 +7,8 @@ return {
   opts = {},
   config = function()
     require("fzf-lua").setup()
+    vim.keymap.set("n", "<leader>ss", function()
+      require("fzf-lua").lsp_document_symbols()
+    end, { desc = "FZF LSP Document Symbols" })
   end,
 }
