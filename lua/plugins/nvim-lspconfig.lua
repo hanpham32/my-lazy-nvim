@@ -82,6 +82,9 @@ return {
         },
       })
 
+      -- GDScript
+      lspconfig.gdscript.setup(capabilities)
+
       -- Lua
       lspconfig.lua_ls.setup({
         capabilities = capabilities,

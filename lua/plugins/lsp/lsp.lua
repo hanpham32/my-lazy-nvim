@@ -1,5 +1,6 @@
 -- filtypes to load all the lsp plugins
 local ft = {
+  "gd",
   "lua",
   "sql",
   "rust",

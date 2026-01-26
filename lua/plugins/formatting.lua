@@ -24,6 +24,7 @@ return {
         lua = { "stylua" },
         python = { "black" },
         toml = { "taplo" },
+        gdscript = { "gdformat" },
       },
 
       -- To specify running only the first available formatter, use this:
