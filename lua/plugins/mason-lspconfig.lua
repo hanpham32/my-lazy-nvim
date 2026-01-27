@@ -17,6 +17,7 @@ local mason_lspconfig = {
   "mason-org/mason-lspconfig.nvim",
   opts = {
     ensure_installed = {
+      "gdscript",
       "solidity_ls",
       "efm",
       "bashls",
