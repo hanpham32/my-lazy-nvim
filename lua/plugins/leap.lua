@@ -1,5 +1,5 @@
 return {
-  "andyg/leap.nvim",
+  "https://codeberg.org/andyg/leap.nvim",
   lazy = true,
   config = function()
     vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
