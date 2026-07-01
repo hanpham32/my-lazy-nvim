@@ -3,7 +3,13 @@ return {
   keys = {
     -- disable the keymap to grep files
     { "<leader>/", false },
-    -- change a keymap
+    {
+      "<leader>fF",
+      function()
+        require("telescope.builtin").find_files({ hidden = true, no_ignore = true })
+      end,
+      desc = "Find Hidden Files",
+    },
     {
       "<leader>ff",
       function()
