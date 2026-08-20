@@ -19,8 +19,21 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Yank to system clipboard
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>Y", '"+Y', { desc = "Yank line(s) to clipboard" })
+
 vim.keymap.set("n", "<leader>td", "<cmd>TodoQuickFix<cr>", { desc = "Open TODOs in quickfix list" })
 require("telescope").load_extension("todo-comments")
 vim.keymap.set("n", "<leader>tt", "<cmd>TodoTelescope<cr>", { desc = "Open TODOs in telescope" })
 
 vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Toggle Markdown Preview" })
+
+vim.keymap.set("n", "<leader>ci", function()
+  local header = vim.fn.expand("<cfile>")
+  if header:match("^<.+$") then
+    header = header:match("^<(.+)>$")
+  end
+  local path = "/usr/include/c++/16.1.1/" .. header
+  vim.cmd("edit " .. path)
+end, { desc = "Open C++ header under cursor in a new buffer" })
