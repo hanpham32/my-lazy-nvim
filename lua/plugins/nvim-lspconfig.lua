@@ -167,17 +167,6 @@ return {
         },
       })
 
-      -- Rust LSP setup
-      lspconfig.rust_analyzer.setup({
-        capabilities = {
-          workspace = {
-            didChangeWatchedFiles = {
-              dynamicRegistration = true,
-            },
-          },
-        },
-        on_attach = on_attach,
-      })
 
       -- C# LSP setup
       lspconfig.omnisharp.setup({
